@@ -4,4 +4,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(270deg, rgb(255, 90, 115), rgb(255, 39, 71)) ;
 }
