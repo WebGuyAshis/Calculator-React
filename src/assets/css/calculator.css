@@ -1,89 +1,99 @@
-.calculator{
-    height: 600px;
-    width: 320px;
-    min-width: 300px;
-    background: linear-gradient(rgb(37, 54, 87), #091726);
-    border-radius: 30px;
-    overflow: hidden;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    border: 6px solid black;
+.calculator {
+  height: 600px;
+  width: 320px;
+  min-width: 300px;
+  background: linear-gradient(rgb(37, 54, 87), #091726);
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 6px solid black;
+  transition: 0.5s;
 }
-.display{
-    height: 40%;
-    width: 100%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+.display {
+  height: 40%;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.expression{
-    height: 50%;
-    font-size:50px ;
-    overflow-x: auto;
-    color: rgb(144, 144, 144);
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    overflow: hidden;
-    overflow-x: auto;
+.expression {
+  height: 50%;
+  font-size: 50px;
+  overflow-x: auto;
+  color: rgb(144, 144, 144);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  overflow: hidden;
+  overflow-x: auto;
 }
-.result{
-    height: 50%;
-    overflow: hidden;
-    overflow-x: auto;
-    font-size:80px ;
-    color: rgb(215, 215, 215);
-    display: flex;
-    flex-direction: row-reverse;
+.result {
+  height: 50%;
+  overflow: hidden;
+  overflow-x: auto;
+  font-size: 80px;
+  color: rgb(215, 215, 215);
+  display: flex;
+  flex-direction: row-reverse;
 }
-.numpad{
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.numpad button{
-    min-width: calc(25% - 10px);
-    flex: 1;
-    border: none;
-    background-color: transparent;
-    transition: all 0.4s;
-    cursor: pointer;
-    font-size: 25px;
-    color: rgb(179, 179, 179);
+.numpad {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.numpad button:hover{
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 6px;    
+.numpad button {
+  min-width: calc(25% - 10px);
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s;
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(179, 179, 179);
+}
+
+.numpad button:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
 }
 
 hr {
-    width: 100%;
-    height: 1px;
-    border: none;
-    background: linear-gradient(to right, transparent, grey, transparent);
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: linear-gradient(to right, transparent, grey, transparent);
 }
 
 .result::-webkit-scrollbar {
-    height: 5px;
-  }
-  
+  height: 5px;
+}
+
 .result::-webkit-scrollbar-thumb {
-    background-color: rgb(73, 89, 103);
-    border-radius: 10px;
+  background-color: rgb(73, 89, 103);
+  border-radius: 10px;
 }
 
 .expression::-webkit-scrollbar {
-    height: 5px;
-  }
-  
+  height: 5px;
+}
+
 .expression::-webkit-scrollbar-thumb {
-    background-color: rgb(73, 89, 103);
-    border-radius: 10px;
+  background-color: rgb(73, 89, 103);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 400px) {
+  .calculator {
+    height: 100%;
+    width: 100%;
+    max-height: 700px;
+  }
 }
