@@ -26,24 +26,23 @@ export default function Calculator() {
   ];
 
   const signs = ["+", "-", "*", "/", "%"];
-
+  // Using Hooks to Store Expression and Result
   const [result, setResult] = useState("0");
   const [expression, setExpression] = useState("");
   const [evaluated, setEvaluated] = useState(false);
-
+  // Handling Button Clicks
   const clickHandler = (e) => {
     let value = e.target.value;
-    console.log("Evaluated Init:", evaluated);
+    // Clearing Everything on AC button press.
     if (value === "AC") {
       setExpression("");
       setResult("0");
-    } else if (value === "DEL") {
+    } else if (value === "DEL") {   //Deleting Previous Character
       setExpression(expression.slice(0, -1));
       setResult("");
-    } else if (value === "=") {
+    } else if (value === "=") {     //Evaluating Expression
       setEvaluated(true);
-      console.log("eval = :", evaluated);
-      try {
+      try {                         //Error handling while evaluating
         if (isNaN(result)) {
           setResult("Error!");
         }
@@ -51,7 +50,7 @@ export default function Calculator() {
       } catch (err) {
         setResult("Error!");
       }
-    } else if (value === "+/-") {
+    } else if (value === "+/-") {     
       setResult(result * -1);
     } else if (signs.includes(value)) {
       let lastChar = expression.slice(-1);
@@ -70,9 +69,7 @@ export default function Calculator() {
       }
       setEvaluated(false);
     } else {
-      console.log("Evaluate Before NUM", evaluated);
       if (evaluated) {
-        console.log("Evaluated");
         setEvaluated(false);
         setExpression(value);
         setResult("");
@@ -82,6 +79,7 @@ export default function Calculator() {
       }
     }
   };
+  // UI Part
   return (
     <div className="calculator">
       <div className="display">
@@ -90,7 +88,7 @@ export default function Calculator() {
       </div>
       <hr />
       <div className="numpad">
-        {keys.map((btn, key) => {
+        {keys.map((btn, key) => { 
           return (
             <button key={key} value={btn} onClick={clickHandler}>
               {btn}
