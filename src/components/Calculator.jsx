@@ -28,6 +28,7 @@ export default function Calculator() { //Array of Keys
   ];
 
   const signs = ["+", "-", "*", "/", "%"];
+  
   const [result, setResult] = useState("0"); //To Set Result
   const [expression, setExpression] = useState(""); //To Set Expression
   const [evaluated, setEvaluated] = useState(false); // To check evaluation
@@ -74,8 +75,15 @@ export default function Calculator() { //Array of Keys
         setResult("Error!");
       }
       setEvaluated(true);
-    } else if (value === "+/-") {  //Handling (+/-)
-      setResult((parseFloat(result) * -1).toString());
+    } else if (value === "+/-") {  
+      //Handling (+/-)
+      if(result.length > 0){
+        setExpression((parseFloat(result) * -1).toString());
+        setResult((parseFloat(result) * -1).toString());
+      }else{
+        setExpression((parseFloat(expression)* -1).toString());
+        setResult((parseFloat(expression)* -1).toString());
+      }
     } else if (signs.includes(value)) {
 
       const lastChar = expression.slice(-1);
