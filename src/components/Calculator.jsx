@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../assets/css/calculator.css";
 import * as math from "mathjs";
+
 export default function Calculator() {
   const keys = [
     "+/-",
@@ -26,60 +27,54 @@ export default function Calculator() {
   ];
 
   const signs = ["+", "-", "*", "/", "%"];
-  // Using Hooks to Store Expression and Result
   const [result, setResult] = useState("0");
   const [expression, setExpression] = useState("");
   const [evaluated, setEvaluated] = useState(false);
-  // Handling Button Clicks
+
   const clickHandler = (e) => {
-    let value = e.target.value;
-    // Clearing Everything on AC button press.
+    const value = e.target.value;
     if (value === "AC") {
       setExpression("");
       setResult("0");
-    } else if (value === "DEL") {   //Deleting Previous Character
+      setEvaluated(false);
+    } else if (value === "DEL") {
       setExpression(expression.slice(0, -1));
       setResult("");
-    } else if (value === "=") {     //Evaluating Expression
-      setEvaluated(true);
-      try {                         //Error handling while evaluating
+      setEvaluated(false);
+    } else if (value === "=") {
+      try {
         if (isNaN(result)) {
           setResult("Error!");
+        } else {
+          setResult(math.evaluate(expression));
+          setExpression(math.evaluate(expression).toString());
         }
-        setResult(math.evaluate(expression));
       } catch (err) {
         setResult("Error!");
       }
-    } else if (value === "+/-") {     
-      setResult(result * -1);
+      setEvaluated(true);
+    } else if (value === "+/-") {
+      setResult((parseFloat(result) * -1).toString());
     } else if (signs.includes(value)) {
-      let lastChar = expression.slice(-1);
-      if (lastChar === "") {
-        setExpression(0 + value);
-        setResult("");
-      } else if (evaluated) {
-        setExpression(result + value);
-        setResult("");
-      } else if (signs.includes(lastChar)) {
+      const lastChar = expression.slice(-1);
+      if (lastChar === "" || signs.includes(lastChar)) {
         setExpression(expression.slice(0, -1) + value);
-        setResult("");
       } else {
         setExpression(expression + value);
-        setResult("");
       }
+      setResult("");
       setEvaluated(false);
     } else {
       if (evaluated) {
         setEvaluated(false);
         setExpression(value);
-        setResult("");
       } else {
         setExpression(expression + value);
-        setResult("");
       }
+      setResult("");
     }
   };
-  // UI Part
+
   return (
     <div className="calculator">
       <div className="display">
@@ -88,14 +83,13 @@ export default function Calculator() {
       </div>
       <hr />
       <div className="numpad">
-        {keys.map((btn, key) => { 
-          return (
-            <button key={key} value={btn} onClick={clickHandler}>
-              {btn}
-            </button>
-          );
-        })}
+        {keys.map((btn, key) => (
+          <button key={key} value={btn} onClick={clickHandler}>
+            {btn}
+          </button>
+        ))}
       </div>
     </div>
   );
 }
+
