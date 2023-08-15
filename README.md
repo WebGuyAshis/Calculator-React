@@ -16,7 +16,7 @@ A simple calculator web application built using React that allows users to perfo
 
 ## Live Demo
 
-Check out the live demo of the calculator app: [Demo Link](https://github.com/WebGuyAshis)
+Check out the live demo of the calculator app: [Demo Link](https://webguyashis-react-calculator.netlify.app/)
 
 ![calculator](https://github.com/WebGuyAshis/Calculator-React/assets/126752768/7e94ffe8-806d-4811-8542-0b58352ab636)
 
