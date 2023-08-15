@@ -1,3 +1,48 @@
+# React Calculator App
+
+A simple calculator web application built using React that allows users to perform basic arithmetic operations.
+
+
+
+## Features
+
+- Addition, subtraction, multiplication, division, and modulus operations.
+- Clear current calculation and start over.
+- Delete the last entered character.
+- Toggle positive/negative sign of the current number.
+- Evaluate the final result of the calculation.
+- Prevent multiple use of the decimal point within a number.
+- Tap sound effect on button press.
+
+## Live Demo
+
+Check out the live demo of the calculator app: [Demo Link](https://github.com/WebGuyAshis)
+
+## How to Use
+
+1. Click on the buttons to input numbers and perform operations.
+2. Use the "+/-" button to toggle the positive/negative sign of the current number.
+3. Use the "%" button to calculate the modulus.
+4. Use the "AC" button to clear all and start over.
+5. Use the "DEL" button to delete the last character entered.
+6. Use the "=" button to evaluate the final result of the calculation.
+7. To input decimal numbers, use the "." button. It prevents multiple use of the decimal point.
+8. Enjoy the tap sound effect when pressing buttons!
+
+## Technologies Used
+
+- React
+- Math.js for calculations
+- Audio effect using HTML5 <audio> element
+
+## Folder Structure
+
+The project structure is organized as follows:
+
+- `public/`: Contains the HTML file and other static assets.
+- `src/`: Contains the React components and application logic.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
